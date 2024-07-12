@@ -5,23 +5,20 @@ import { LetterState } from '../Tusmo'
 export const InputRow: FunctionComponent<{
   key?: string
   wordToFind: string
-  input: string
+  children: string
   letterStatelist?: LetterState[]
-}> = ({ key, wordToFind, input, letterStatelist }) => {
+}> = ({ key, wordToFind, children: input, letterStatelist }) => {
   const [firstLetter, ...restOfTheWord] = wordToFind
 
   return (
     <div key={key}>
-      <LetterHolder
-        state='good'
-        letter={firstLetter}
-      />
+      <LetterHolder state='good'>{firstLetter}</LetterHolder>
       {restOfTheWord.map((_letter, key) => (
         <LetterHolder
           key={`letter-holder-${key}`}
-          letter={[...input][key] ?? '_'}
-          state={letterStatelist ? letterStatelist[key] : undefined}
-        />
+          state={letterStatelist?.[key]}>
+          {[...input][key] ?? '_'}
+        </LetterHolder>
       ))}
     </div>
   )

@@ -86,14 +86,11 @@ export const Tusmo: FunctionComponent<{ wordToFind: string }> = ({ wordToFind })
         <InputRow
           key={`input-row-${key}`}
           wordToFind={wordToFind}
-          input={userTry.input}
-          letterStatelist={userTry.state}
-        />
+          letterStatelist={userTry.state}>
+          {userTry.input}
+        </InputRow>
       ))}
-      <InputRow
-        wordToFind={wordToFind}
-        input={input}
-      />
+      <InputRow wordToFind={wordToFind}>{input}</InputRow>
     </div>
   )
 }

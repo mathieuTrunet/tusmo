@@ -4,8 +4,8 @@ import { LetterState } from '../Tusmo'
 export const LetterHolder: FunctionComponent<{
   key?: string
   state?: LetterState
-  letter?: string
-}> = ({ key, letter, state }) => (
+  children?: string
+}> = ({ key, children: letter, state }) => (
   <span
     key={key}
     style={getStyle(state)}>
